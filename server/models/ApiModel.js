@@ -26,6 +26,7 @@ const BakerSchema = new mongoose.Schema({
         type : Date,
     },
 });
+
 BakerSchema.plugin(AutoIncrement, {inc_field: 'baker_id'});
 const Baker = mongoose.model("bakers", BakerSchema);
 

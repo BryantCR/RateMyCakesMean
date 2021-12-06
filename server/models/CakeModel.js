@@ -42,4 +42,4 @@ const CakeModel = {
     }
 };
 
-module.exports = {CakeModel};
+module.exports = {CakeModel, CakeSchema};

@@ -22,7 +22,7 @@ const CakeSchema = new mongoose.Schema({
 });
 
 CakeSchema.plugin(AutoIncrement, {inc_field: 'cake_id'});
-const Cake = mongoose.model("cakes", BakerSchema);
+const Cake = mongoose.model("cakes", CakeSchema);
 
 const CakeModel = {
     addRate : function( newRate ){

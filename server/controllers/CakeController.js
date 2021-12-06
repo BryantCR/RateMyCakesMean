@@ -1,4 +1,4 @@
-const {CakeModel} = require('../models/CakesModel');
+const {CakeModel} = require('../models/CakeModel');
 
 const CakeController = {
 

@@ -6,7 +6,7 @@ const BakerController = {
         BakerModel
         .getAllCakes()
         .then( data => {
-            let task = data.map(tasks => {
+            let baker = data.map(tasks => {
                 console.log( tasks );
                 return {
                     _id: tasks._id,
@@ -17,8 +17,8 @@ const BakerController = {
                     id2: tasks.baker_id
                 }
             })
-        console.log( task );
-        response.status( 200 ).json( {message: "Success!", task: task} );
+        console.log( baker );
+        response.status( 200 ).json( {message: "Success!", baker: baker} );
         })
         .catch( err => {
             console.log( "Something went wrong!" );
@@ -43,8 +43,8 @@ const BakerController = {
             }
             console.log("New Baker info: ", newCake);
 
-            TaskModel
-                .createTask( newCake )
+            BakerModel
+                .addCake( newCake )
                 .then( result => {
                     response.status( 201 ).json( {message: "Success!", added: true, task: result } );
                 });

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const {CakeSchema} = require( './CakeModel' );
 const AutoIncrement = require('mongoose-sequence')(mongoose); // Auto-Increment
+const {CakeSchema} = require( './CakeModel' );
 
 const BakerSchema = new mongoose.Schema({
     firstname: {

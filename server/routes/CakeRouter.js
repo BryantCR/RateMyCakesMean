@@ -4,7 +4,7 @@ const CakeRouter = express.Router();
 const {CakeController} = require('../controllers/CakeController');
 
 
-ApiRouter
+CakeRouter
     .post('/cake', CakeController.addRate);
 /*
 ApiRouter

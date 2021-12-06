@@ -7,7 +7,7 @@ const BakerController = {
         .getAllCakes()
         .then( data => {
             let baker = data.map(tasks => {
-                console.log( baker );
+                console.log( "Backer: ", tasks );
                 return {
                     _id: tasks._id,
                     firstname: tasks.firstname,

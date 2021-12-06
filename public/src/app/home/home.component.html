@@ -4,19 +4,19 @@
     </h1>
     <div id="top">
         <div id="leftpanel">
-            <form (submit)="cakeSubmit()">
+            <form (submit)="cakeSubmit()" style="display: flex; flex-direction: column; width: 200px;">
                 <label>
                     Baker Name
                 </label>
-                <input class="fields" type="text" name="" [(ngModel)]="newCake.bakerFN"/>
+                <input [(ngModel)]="newCake.bakerFN" class="fields" type="text" name="FN" />
                 <label>
                     Baker LastName
                 </label>
-                <input class="fields" type="text" name="" [(ngModel)]="newCake.bakerLN"/>
+                <input [(ngModel)]="newCake.bakerLN" class="fields" type="text" name="LN" />
                 <label>
                     Image URL
                 </label>
-                <input class="fields" type="text" name="" [(ngModel)]="newCake.image"/>
+                <input [(ngModel)]="newCake.image" class="fields" type="text" name="image" />
                 <button class="btn1" type="submit">
                     Add
                 </button>
@@ -24,8 +24,11 @@
         </div>
         <div id="rightpanel">
             <div *ngFor = "let baker of bdBakers">
-                <div id="imgbox">
-                    <a><img class="pic" [src]="baker.image"></a> 
+                <div id="imgbox" style="display: flex; flex-direction: column; ">
+                    <p>
+                        {{baker.firstname}}
+                    </p>
+                    <a href="/cake/{{baker.id2}}"><img class="pic" [src]="baker.image"></a>
                 </div>
                 <div id="formbox">
                     <form id="rating" >

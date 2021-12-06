@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAllBakers(): void {
-    console.log("We are going to fetch the tasks list!");
+    console.log("We are going to fetch the bakers list!");
     this._httpService.fetchBakers()
     .subscribe( (data:any) => {
       this.bdBakers = data.baker;
@@ -38,12 +38,10 @@ export class HomeComponent implements OnInit {
   }
 
   cakeSubmit(){
-    /*let observable = this._httpService.addCake(this.newCake);
-    observable.subscribe(data => {
-      console.log("~Create Cake~");
+    let observable = this._httpService.fetchAddBakers(this.newCake);
+    observable.subscribe( (data:any) => {
+      console.log("Create Cake: ", data);
     })
-    this.newCake = { baker: "", image: "" }
-    this.getCakesFromService();*/
   }
 
 

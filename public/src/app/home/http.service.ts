@@ -14,4 +14,9 @@ export class HttpService {
     return this._http.get( "http://localhost:8080/bakers" )
   }
 
+  fetchAddBakers(newCake:any){
+    console.log("Route POST Add: ", newCake);
+    return this._http.get( "http://localhost:8080/baker", newCake )
+  }
+
 }

@@ -1,1 +1,62 @@
-<p>home works!</p>
+<div id="container">
+    <h1>
+        Rate My Cakes
+    </h1>
+    <div id="top">
+        <div id="leftpanel">
+            <form (submit)="cakeSubmit()">
+                <label>
+                    Baker Name
+                </label>
+                <h3><input class="fields" type="text" name="newCake.baker" [(ngModel)]="newCake.baker"/></h3>
+                <label>
+                    Baker LastName
+                </label>
+                <h3><input class="fields" type="text" name="newCake.baker" [(ngModel)]="newCake.baker"/></h3>
+                <label>
+                    Image URL
+                </label>
+                <h3><input class="fields" type="text" name="newCake.image" [(ngModel)]="newCake.image"/></h3>
+                <button class="btn1" type="submit">
+                    Add
+                </button>
+            </form>
+        </div>
+        <div id="rightpanel">
+            <div *ngFor = "">
+                <div id="imgbox">
+                    <a (click)="info(idx)"><img class="pic" [src]="cake.image"></a>
+                </div>
+                <div id="formbox">
+                    <form id="rating" (submit)="ratingSubmit(cake._id)">
+                        <select class="fields2" name="" [(ngModel)]="newRating.rating">
+                            <option value="1" selected>
+                                1
+                            </option>
+                            <option value="2">
+                                2
+                            </option>
+                            <option value="3">
+                                3
+                            </option>
+                            <option value="4">
+                                4
+                            </option>
+                            <option value="5">
+                                5
+                            </option>
+                        </select>
+                        <textarea class="fields2" name="" [(ngModel)]="newRating.comment"></textarea>
+                        <!-- <input type="hidden" name="cakeId" value="cake._id"> -->
+                        <button class="btn2" type="submit">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bottom">
+      <app-details *ngIf="selectedCake" [cakesToShow]="selectedCake" [avgRating]="avg"></app-details>
+    </div>
+</div>

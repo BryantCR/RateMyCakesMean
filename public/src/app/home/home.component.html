@@ -8,27 +8,27 @@
                 <label>
                     Baker Name
                 </label>
-                <h3><input class="fields" type="text" name="newCake.baker" [(ngModel)]="newCake.baker"/></h3>
+                <input class="fields" type="text" name="" [(ngModel)]="newCake.bakerFN"/>
                 <label>
                     Baker LastName
                 </label>
-                <h3><input class="fields" type="text" name="newCake.baker" [(ngModel)]="newCake.baker"/></h3>
+                <input class="fields" type="text" name="" [(ngModel)]="newCake.bakerLN"/>
                 <label>
                     Image URL
                 </label>
-                <h3><input class="fields" type="text" name="newCake.image" [(ngModel)]="newCake.image"/></h3>
+                <input class="fields" type="text" name="" [(ngModel)]="newCake.image"/>
                 <button class="btn1" type="submit">
                     Add
                 </button>
             </form>
         </div>
         <div id="rightpanel">
-            <div *ngFor = "">
+            <div *ngFor = "let baker of bdBakers">
                 <div id="imgbox">
-                    <a (click)="info(idx)"><img class="pic" [src]="cake.image"></a>
+                    <a><img class="pic" [src]="baker.image"></a> 
                 </div>
                 <div id="formbox">
-                    <form id="rating" (submit)="ratingSubmit(cake._id)">
+                    <form id="rating" >
                         <select class="fields2" name="" [(ngModel)]="newRating.rating">
                             <option value="1" selected>
                                 1

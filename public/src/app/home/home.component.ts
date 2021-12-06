@@ -8,6 +8,18 @@ import { HttpService } from './http.service';
 })
 export class HomeComponent implements OnInit {
   bdBakers: any[] = [];
+
+  newCake : any = {
+    bakerFN : "",
+    bakerLN : "",
+    image : ""
+  }
+
+  newRating : any = {
+    rating : Number,
+    comment : ""
+  }
+
   constructor(private _httpService: HttpService){
     this.getAllBakers();
   }
@@ -24,5 +36,15 @@ export class HomeComponent implements OnInit {
       console.log( "All Bakers: ", this.bdBakers );
     });
   }
+
+  cakeSubmit(){
+    /*let observable = this._httpService.addCake(this.newCake);
+    observable.subscribe(data => {
+      console.log("~Create Cake~");
+    })
+    this.newCake = { baker: "", image: "" }
+    this.getCakesFromService();*/
+  }
+
 
 }

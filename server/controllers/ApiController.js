@@ -50,15 +50,20 @@ const BakerController = {
     },
 
     findById : function ( request, response ) {
-        let id2 = request.params.id2;
-        console.log("HERE", id2);
+        let id = request.params.id;
+        console.log("HERE: ", id);
 
         BakerModel
-            .getTaskById(id2)
+            .findById(id)
             .then( titles => {
                 let cake = titles
-                console.log("HERE", cake);
-                response.status( 200 ).json( {message: "Success!", cake : cake} );
+                console.log("HERE2: ", cake);
+                response.status( 200 ).json(cake);
+            })
+            .catch( err => {
+                console.log( "Something went wrong!" );
+                console.log( err );
+                response.json( err );
             })
     },
 

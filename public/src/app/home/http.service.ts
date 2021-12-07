@@ -24,4 +24,9 @@ export class HttpService {
     return this._http.post( "http://localhost:8080/cake/rate", data );
   }
 
+  fetchBakerById(id:any){
+    console.log("Route GET By Id: ", id);
+    return this._http.get( "http://localhost:8080/baker/"+ id );
+  }
+
 }

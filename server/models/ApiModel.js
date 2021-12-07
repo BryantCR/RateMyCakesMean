@@ -50,6 +50,10 @@ const BakerModel = {
         console.log("Model Id: ", id);
         console.log("Model Data: ", data);
         return Baker.findByIdAndUpdate({_id: id}, {$push: {ratings: data}}, {new : true});
+    },
+    findById : function(id){
+        console.log("Model Id: ", id);
+        return Baker.findById({_id: id});
     }
 
 };

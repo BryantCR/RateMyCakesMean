@@ -8,6 +8,10 @@ import { HttpService } from './http.service';
 })
 export class HomeComponent implements OnInit {
   bdBakers: any[] = [];
+  bdRatings: any = {};
+  ratingsCount: any = {};
+  countOfRatings: any = 0;
+  sum: any;
 
   newCake : any = {
     bakerFN : "",
@@ -42,6 +46,7 @@ export class HomeComponent implements OnInit {
     observable.subscribe( (data:any) => {
       console.log("Create Cake: ", data);
     })
+    location.reload();
   }
 
   ratingSubmit(id:any){
@@ -52,6 +57,26 @@ export class HomeComponent implements OnInit {
     observable.subscribe(data => {
       console.log("Create Comment: ", data);
     })
+    location.reload();
+  }
+
+  info(bakerId:any) {
+    this._httpService.fetchBakerById(bakerId)
+    .subscribe( (data:any) => {
+      console.log(" Baker by Id: ", data)
+      for(let i = 0; i < data.ratings.length; i++){
+        this.ratingsCount = data.ratings[i].rating
+        this.countOfRatings = this.countOfRatings + this.ratingsCount;
+        this.sum  = this.countOfRatings / data.ratings.length;
+      }
+      console.log("Rating Count: ", this.sum)
+      this.bdRatings = data;
+    })
+    //location.reload();
+  }
+
+  close() {
+    location.reload();
   }
 
 }

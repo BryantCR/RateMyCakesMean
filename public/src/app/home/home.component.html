@@ -2,8 +2,8 @@
     <h1>
         Rate My Cakes
     </h1>
-    <div id="top">
-        <div id="leftpanel">
+    <div id="top" style="display: flex; flex-direction: row; justify-content: center; align-items: center; align-content: center;">
+        <div id="leftpanel" style="display: flex; margin-right: 100px;">
             <form (submit)="cakeSubmit()" style="display: flex; flex-direction: column; width: 200px;">
                 <label>
                     Baker Name
@@ -24,16 +24,16 @@
         </div>
         <div id="rightpanel">
             <div *ngFor = "let baker of bdBakers">
-                <div id="imgbox" style="display: flex; flex-direction: column; ">
+                <div id="imgbox" style="display: flex; flex-direction: column; text-align: center;">
                     <p>
                         {{baker.firstname}}
                     </p>
-                    <a href="/cake/{{baker.baker_id}}"><img class="pic" [src]="baker.image"></a>
+                    <a (click)="info(baker._id)" ><img class="pic" [src]="baker.image"></a>
                 </div>
                 <div id="formbox">
-                    <form id="rating" (submit)="ratingSubmit(baker._id)">
+                    <form id="rating" (submit)="ratingSubmit(baker._id)" style="display: flex; flex-direction: row; justify-content: center; align-items: center; align-content: center;">
                         <select class="fields2" name="a" [(ngModel)]="newRating.rating">
-                            <option value="1" selected>
+                            <option value="1" >
                                 1
                             </option>
                             <option value="2">
@@ -57,6 +57,36 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="botton" *ngIf="bdRatings.firstname">
+        <h1>
+            Baked by {{bdRatings.firstname}} {{bdRatings.lastname}}
+        </h1> 
+        <div id="imgbox2">
+            <img class="pic2" [src]="bdRatings.image">
+        </div>
+        <div id="details">
+                <h3>
+                    Average rating: {{sum}}
+                </h3>
+            </div>
+        <div *ngFor="let comment of bdRatings.ratings">
+            
+            <h4>
+                Coment
+            </h4>
+            <p>
+                {{comment.comment}}
+            </p>
+            <p>
+                Rating: {{comment.rating}}
+            </p>
+        </div>
+        <div>
+            <button (click)="close()">
+                Close
+            </button>
         </div>
     </div>
 </div>

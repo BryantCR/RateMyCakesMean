@@ -5,7 +5,7 @@ const {CakeController} = require('../controllers/CakeController');
 
 
 CakeRouter
-    .post('/cake', CakeController.addRate);
+    .post('/rate', CakeController.addRate);
 /*
 ApiRouter
     .delete('/remove/:title', CakeController.removeTask );

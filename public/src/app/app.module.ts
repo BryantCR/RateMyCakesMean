@@ -7,11 +7,13 @@ import { HomeComponent } from './home/home.component';
 
 import { HttpService } from './../app/home/http.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

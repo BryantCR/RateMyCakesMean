@@ -45,9 +45,10 @@ export class HomeComponent implements OnInit {
   }
 
   ratingSubmit(id:any){
-    console.log("Id", id);
+    console.log("Id", Object(id));
     console.log("New rating", this.newRating);
-    let observable = this._httpService.fetchAddRate( id, this.newRating);
+    this.newRating.id = id
+    let observable = this._httpService.fetchAddRate(this.newRating);
     observable.subscribe(data => {
       console.log("Create Comment: ", data);
     })

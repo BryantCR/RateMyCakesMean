@@ -1,3 +1,4 @@
+const { BakerModel } = require('../models/ApiModel');
 const {CakeModel} = require('../models/CakeModel');
 
 const CakeController = {
@@ -38,15 +39,21 @@ const CakeController = {
             comment,
             created_at
         }
+        console.log("Rate Id: ", id);
         console.log("Rate: ", ratedCake);
-
         CakeModel
         .addRate(ratedCake)
-        .then( (data:any) => {
+        .then( data => {
             console.log("Add Rate: ", data);
-            res.status(200).json(data);
-            CakeModel
-            .updateCake()
+            //response.status(200).json(data);
+            newCakeRate = {
+                rating: data
+            }
+            BakerModel
+            .updateCake(id, data)
+            .then( data2 => {
+                response.status(200).json(data2);
+            })
         })
         
     },

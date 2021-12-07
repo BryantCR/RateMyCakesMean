@@ -8,14 +8,7 @@ const BakerController = {
         .then( data => {
             let baker = data.map(tasks => {
                 console.log( "Backer: ", tasks );
-                return {
-                    _id: tasks._id,
-                    firstname: tasks.firstname,
-                    lastname : tasks.lastname,
-                    image : tasks.image,
-                    created_at : tasks.created_at,
-                    id2: tasks.baker_id
-                }
+                return tasks;
             })
         console.log( baker );
         response.status( 200 ).json( {message: "Success!", baker: baker} );

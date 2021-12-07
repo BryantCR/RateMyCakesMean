@@ -36,9 +36,6 @@ const CakeModel = {
     },
     delete : function( title ){
         return Cake.deleteOne({ title });
-    },
-    updateCake: function(id, data){
-        return Cake.findOneAndUpdate({id:id},{$set:data}, {new:true})
     }
 };
 

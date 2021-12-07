@@ -45,7 +45,13 @@ const BakerModel = {
     },
     updateTask: function(id, data){
         return Baker.findOneAndUpdate({id:id},{$set:data})
+    },
+    updateCake: function(id, data){
+        console.log("Model Id: ", id);
+        console.log("Model Data: ", data);
+        return Baker.findByIdAndUpdate({_id: id}, {$push: {ratings: data}}, {new : true});
     }
+
 };
 
 module.exports = {BakerModel};

@@ -33,7 +33,7 @@ const CakeController = {
         let comment = request.body.comment;
         let created_at = new Date();
 
-        ratedCake : {
+        ratedCake = {
             rating,
             comment,
             created_at
@@ -41,8 +41,14 @@ const CakeController = {
         console.log("Rate: ", ratedCake);
 
         CakeModel
-        .updateCake
-
+        .addRate(ratedCake)
+        .then( (data:any) => {
+            console.log("Add Rate: ", data);
+            res.status(200).json(data);
+            CakeModel
+            .updateCake()
+        })
+        
     },
 
     /*addRate: function(request, response){

@@ -11,17 +11,17 @@ export class HttpService {
   }
 
   fetchBakers(){
-    return this._http.get( "http://localhost:8080/bakers" )
+    return this._http.get( "http://localhost:8080/bakers" );
   }
 
   fetchAddBakers(newCake:any){
     console.log("Route POST Add: ", newCake);
-    return this._http.post( "http://localhost:8080/baker", newCake )
+    return this._http.post( "http://localhost:8080/baker", newCake );
   }
 
-  fetchAddRate(data:any){
+  fetchAddRate(id:any, data:any){
     console.log("Route POST Add: ", data);
-    return this._http.post( "http://localhost:8080/cake", data )
+    return this._http.post( "http://localhost:8080/cake", id, data );
   }
 
 }

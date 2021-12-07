@@ -27,7 +27,25 @@ const CakeController = {
         })
     },
 
-    addRate: function(request, response){
+    addRate : function(request, response){
+        let id = request.body.id;
+        let rating = request.body.rating;
+        let comment = request.body.comment;
+        let created_at = new Date();
+
+        ratedCake : {
+            rating,
+            comment,
+            created_at
+        }
+        console.log("Rate: ", ratedCake);
+
+        CakeModel
+        .updateCake
+
+    },
+
+    /*addRate: function(request, response){
 
         let rating = request.body.rating;
         let comment = request.body.comment;
@@ -53,7 +71,7 @@ const CakeController = {
             response.statusMessage = "You are missing a field to create a new baker ('Firstname')";
             response.status( 406 ).end();
         }  
-    },
+    },*/
 
     findById : function ( request, response ) {
         let id2 = request.params.id2;

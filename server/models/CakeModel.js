@@ -37,7 +37,7 @@ const CakeModel = {
     delete : function( title ){
         return Cake.deleteOne({ title });
     },
-    updateTask: function(id, data){
+    updateCake: function(id, data){
         return Cake.findOneAndUpdate({id:id},{$set:data})
     }
 };

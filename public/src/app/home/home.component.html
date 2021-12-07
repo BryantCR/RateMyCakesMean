@@ -8,15 +8,15 @@
                 <label>
                     Baker Name
                 </label>
-                <input [(ngModel)]="newCake.bakerFN" class="fields" type="text" name="FN" />
+                <input [(ngModel)]="newCake.bakerFN" class="fields" type="text" name="FN" [ngModelOptions]="{standalone: true}"/>
                 <label>
                     Baker LastName
                 </label>
-                <input [(ngModel)]="newCake.bakerLN" class="fields" type="text" name="LN" />
+                <input [(ngModel)]="newCake.bakerLN" class="fields" type="text" name="LN" [ngModelOptions]="{standalone: true}"/>
                 <label>
                     Image URL
                 </label>
-                <input [(ngModel)]="newCake.image" class="fields" type="text" name="image" />
+                <input [(ngModel)]="newCake.image" class="fields" type="text" name="image" [ngModelOptions]="{standalone: true}"/>
                 <button class="btn1" type="submit">
                     Add
                 </button>
@@ -31,8 +31,8 @@
                     <a href="/cake/{{baker.id2}}"><img class="pic" [src]="baker.image"></a>
                 </div>
                 <div id="formbox">
-                    <form id="rating" >
-                        <select class="fields2" name="" [(ngModel)]="newRating.rating">
+                    <form id="rating" (submit)="ratingSubmit(baker._id)">
+                        <select class="fields2" name="a" [(ngModel)]="newRating.rating">
                             <option value="1" selected>
                                 1
                             </option>
@@ -49,7 +49,7 @@
                                 5
                             </option>
                         </select>
-                        <textarea class="fields2" name="" [(ngModel)]="newRating.comment"></textarea>
+                        <textarea class="fields2" name="s" [(ngModel)]="newRating.comment"></textarea>
                         <!-- <input type="hidden" name="cakeId" value="cake._id"> -->
                         <button class="btn2" type="submit">
                             Submit

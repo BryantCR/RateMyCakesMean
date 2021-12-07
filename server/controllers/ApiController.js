@@ -29,10 +29,11 @@ const BakerController = {
 
     addCake: function(request, response){
 
-        let firstname = request.body.firstname;
-        let lastname = request.body.lastname;
+        let firstname = request.body.bakerFN;
+        let lastname = request.body.bakerLN;
         let image = request.body.image;
         let created_at = new Date();
+        console.log("Add: ", firstname);
 
         if(firstname){
             newCake = {
@@ -52,7 +53,7 @@ const BakerController = {
         else{
             response.statusMessage = "You are missing a field to create a new baker ('Firstname')";
             response.status( 406 ).end();
-        }  
+        }
     },
 
     findById : function ( request, response ) {
